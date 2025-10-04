@@ -1,0 +1,222 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a; /* very dark/light black background */
+  color: #f0f0f0; /* light text */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: #1a1a1a; /* same dark/light black as body */
+  color: #f0f0f0;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s;
+}
+
+.sidebar a {
+  display: block;
+  color: #f0f0f0;
+  text-decoration: none;
+  margin: 10px 0;
+  transition: padding-left 0.3s, background-color 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #333333; /* slightly lighter on hover */
+  padding-left: 10px;
+}
+
+.sidebar.active {
+  transform: translateX(-220px);
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 200px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 50px 20px 20px 20px;
+  transition: margin-left 0.3s;
+  position: relative;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.main-content.sidebar-hidden {
+  margin-left: 0;
+}
+
+/* Homepage: Center intro */
+body.home-page .main-content {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Toggle Button */
+#toggleBtn {
+  position: fixed;
+  top: 20px;
+  left: 200px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: left 0.3s;
+}
+
+#toggleBtn.sidebar-hidden {
+  left: 10px;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+.contact-form label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #555555;
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #444444;
+}
+
+/* Project Page Carousel */
+.carousel {
+  overflow: hidden;
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s linear;
+}
+
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-track img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 10px rgba(255,255,255,0.15);
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  box-shadow: 0 0 15px rgba(255,255,255,0.25);
+}
+
+.caption {
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 5px;
+  background-color: rgba(0,0,0,0.6);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Project title */
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f0f0f0;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding-top: 30px;
+  }
+
+  #toggleBtn {
+    left: 10px;
+  }
+
+  .contact-form {
+    max-width: 90%;
+  }
+
+  .carousel-track img {
+    width: 80vw;
+    height: 80vw;
+  }
+}
+/* Sidebar separator */
+.sidebar {
+  border-right: 1px solid rgba(255, 255, 255, 0.2); /* subtle white line */
+}
